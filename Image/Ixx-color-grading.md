@@ -9,7 +9,7 @@ Again professional asks for precision. So we will need another tool for measurin
 ## InfoFor(WaveForm)
 This time it's called with the misleading name [WaveForm] and it will take some getting used to. But believe me: you will quickly understand why every professional app uses it.
 
-Take a look at this example. At the bottom we can see the waveform overlay. It's similar to ImageLevels but it not only shows a single curve for a slice through the image: it shows curves for all slices overlaid.
+Take a look at this example. At the bottom we can see the waveform overlay. It's similar to ImageLevels, but it not only shows a single curve for a slice through the image: it shows curves for all slices overlaid.
 
 So you can quickly read all columns of the image and get an overview.
 
@@ -28,11 +28,11 @@ Try to reproduce the image.
 
 ## Info
 
-Its core are the 3 parameters gain, Gamma and lift. To get a feeling for how they work let's look at an example. The linear gray grader goes from pure black to pure white.
+Its core is the 3 parameters gain, Gamma and lift. To get a feeling for how they work let's look at an example. The linear gray grader goes from pure black to pure white.
 
 ## Info
 
-If the gain, gamma and lift parameters are pure gray they are neutral without  an effect. As always you can click the parameter names to reset to default.
+If the gain, gamma and lift parameters are pure gray they are neutral without an effect. As always you can click the parameter names to reset to default.
 
 ## InfoFor(ColorGrade.Gain)
 
@@ -45,7 +45,7 @@ It affects the lightest colors.
 Try the same with **lift**. And it affects the dark colors.
 
 ## InfoFor(ColorGrade.Gamma)
-Now try the **gamma** color. It adjust the overall brightness, without affecting the lights and darks.
+Now try the **gamma** color. It adjusts the overall brightness, without affecting the lights and darks.
 
 ## Info
 

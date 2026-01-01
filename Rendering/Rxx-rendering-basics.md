@@ -1,6 +1,6 @@
 # From 3D to 2D
 
-## Inof
+## Info
 
 The final output of most things you build in TiXL will be images.
 
@@ -54,7 +54,7 @@ RenderTarget uses "Multi Sampling Anti Aliasing" (MSAA) to smoothen jagged edges
 
 MSAA is enabled by default.
 
-As with all things in live, quality comes with a cost. In most cases you don't need to worry but for projects with 10s or 100s or RenderTargets that can really make a difference.
+As with all things in life, quality comes with a cost. In most cases you don't need to worry but for projects with 10s or 100s or RenderTargets that can really make a difference.
 
 Sometimes you might even prefer a sharper look.
 
