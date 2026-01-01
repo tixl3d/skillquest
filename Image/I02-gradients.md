@@ -64,6 +64,7 @@ Enabling PingPong mirrors the gradient in the middle.
 
 Use Repeat and PingPong to recreate the goal.
 
+
 # Analyze: ImageLevels
 
 ## Info
@@ -237,3 +238,16 @@ Invert blend mode can also combine multiple [RadialGradient] operators into inte
 ## CallToAction(RadialGradient#2)
 
 Adjust the parameters of the second gradient to recreate the pattern. 
+
+
+# More contrast
+
+## Info
+Let's look at this final example.
+
+We have seen the [RemapColors] operator before. It is super powerful. But did you know that it can be used to adjust brightness and contrast without adjusting the gradient?
+
+The trick here is that we can "bias" the color before it is sampled from the gradient. 
+
+## CallToAction
+Todo adjust bias and gain to complete the challenge.
