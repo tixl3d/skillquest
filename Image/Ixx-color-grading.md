@@ -106,3 +106,16 @@ Warm highlights contrast with cool shadows, creating separation without losing d
 
 ## CallToAction(ColorGrade)
 Insert a [ColorGrade] operator and adjust Lift and Gain to create the look.
+
+
+# More Contrast
+
+## Info
+In this final example we use [RemapColors] again.
+
+It can also adjust brightness and contrast without editing the gradient itself.
+
+The idea is to bias the color before it is sampled from the gradient.
+
+## CallToAction
+Adjust bias and gain to complete the challenge.
