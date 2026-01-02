@@ -1,42 +1,48 @@
-# Trigger events
+# Trigger Events
 
 ## Info
-In the beginning of the last chapter I mentioned “trigger events”. 
+Earlier, trigger events were mentioned.
 
-Internally trigger parameters are just ordinary Boolean values:they are either true or false. So nothing prevents you from connecting a Boolean to a trigger input.
+Internally, trigger parameters are just boolean values: true or false.
 
-In tixl triggers or events are just a convention to call booleans results that are only true for a single frame or parameters that only have an effect if they switch from false to true.
+## Info
+What makes them special is how they are used.
 
-For example many of the anim operators have an additional WasHit output that returns true when a new cycle starts.
+In TiXL, triggers usually describe booleans that are true for a single frame, or parameters that only react when the value changes from false to true.
+
+## Info
+Many animation operators provide a [WasHit] output.
+
+It becomes true whenever a new cycle starts and is a common trigger source.
 
 ## CallToAction
+In this example, a value is constantly incremented, counting frames.
 
-In this example we are constantly incrementing a value, and thus counting frames.
+Reset the counter at the beginning of each bar.
 
-Solve the example so that we reset the counter at the beginning of each bar.
 
 # Maximum Random
 
 ## Info
+Here, random values are generated continuously.
 
-In this example we are constantly creating random numbers and keep the value if it exceeds the last one.
-
-To do this we can use the [keep] operator.
-
-## CallToAction
-
-Try to solve the puzzle.
-
-# Maximum Random II
+Using the [Keep] operator, the value is updated only when a new maximum is reached.
 
 ## CallToAction
+Solve the puzzle.
 
-Let’s build upon the last example and reset our highest value on the beginning of each bar.
 
-# Random jump detector
+# Maximum Random with Reset
 
 ## CallToAction
+Build on the previous solution.
 
-In this example we round a noise value. Then we count every time the rounded value jumps to the next step.
+Reset the maximum value at the beginning of each bar.
 
-Can you solve this puzzle?
+
+# Detecting Random Steps
+
+## CallToAction
+Round a noise value into steps.
+
+Count every time the rounded value jumps to the next step and solve the puzzle.

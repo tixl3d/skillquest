@@ -1,73 +1,98 @@
 # Integers vs Floats
 
 ## Info
-For computers values are not all the same. They come in different formats.
-In tixl we use 3 different types:
-Floating point values are used for almost everything. From times, to radius or the strength of effects — most of these parameters are defined as floating point values.
-The precision and format might be different for various parameters but internally they are all the same.
+For computers, values are not all the same. They come in different formats.
 
-Integer values are different. The can only be changed in increments of one. They are used for all counts and indices and many modes.
+In TiXL, three numeric types are commonly used.
 
-To convert between these different types you can use FloatToInt and IntToFloat operators.
+Floating-point values are used for most parameters: time, radius, strength, positions, and animation inputs.  
+While their precision or range may differ depending on the parameter, internally they all behave the same.
 
-It would be convenient to do this conversion automatically and maybe this feature will come in a future version of tixl but for now you will need those operators.
-
-## InfoFor(FloatToInt)
-Note that the FloatToInt operator will not round. Everything behind the period will be zeroed out. Period.
-
-## CallToAction
-Let’s start with a bunch of small examples:
-
-We want to use the time (remember in floating point) to drive which text we are swing.
-
-Try to complete this example.
-
-# Angle steps
+Integer values are different. They can only change in steps of one.  
+They are used for counts, indices, and many mode or selection parameters.
 
 ## Info
-In this example we want to change the rotation of our cube by increments of precisely 15 degrees.
-This sounds like we could use the FloatToInt operator for this.
+To convert between these types, use the [FloatToInt] and [IntToFloat] operators.
+
+Automatic conversion might be convenient, and may exist in the future, but for now these operators make the conversion explicit.
+
+
+## InfoFor(FloatToInt)
+The [FloatToInt] operator does **not** round.
+
+Everything after the decimal point is removed. Period.
+
 
 ## CallToAction
-Try to complete the example.
+Let’s start with a small example.
 
-# Angle steps revised
-I have to admit that the previous example was pretty constructed.
-Rounding a floating point value is such a common task that tixl provides many operators for this.
+Use time (a floating-point value) to control which text is shown.
 
-The [floor] operator is identical to converting a float to an integer and back. It just zeros out the values after the period.
+Complete the example.
+
+
+# Angle Steps
+
+## Info
+In this example, the rotation of a cube should change in steps of exactly 15 degrees.
+
+This sounds like a good case for [FloatToInt].
 
 ## CallToAction
+Complete the example.
 
-Let’s try the last example again.
 
-# Rounding
+# Angle Steps (Revisited)
+
+## Info
+The previous example was a bit artificial.
+
+Rounding floating-point values is common enough that TiXL provides dedicated operators for it.
+
+## Info
+The [Floor] operator converts a float to an integer and back.
+
+It keeps the whole-number part and removes everything after the decimal point.
+
+## CallToAction
+Solve the previous example again, this time using [Floor].
+
+
+# Rounding Up
 
 ## InfoFor(Ceiling)
-Sometimes it’s useful to round to the next upper whole number. 
-The [Ceiling] operator does just that.
+Sometimes it is useful to round up to the next whole number.
 
-Try to solve the Example.
-
-# Yet another Round(ing)
+The [Ceiling] operator does exactly that.
 
 ## CallToAction
-And sometimes it can be useful to round to a fraction or a larger number.
+Solve the example using [Ceiling].
 
-Let’s try our earlier example again. 
 
-Can you figure out  this example?
+# Rounding to Steps
+
+## Info
+Rounding is not limited to whole numbers.
+
+Sometimes you want steps like 0.25, 10, or 100.
+
+## CallToAction
+Recreate the example by rounding to a custom step size.
+
 
 # Precision
 
 ## Info
-Excellent — we are making great progress.
+One important warning about floating-point values:
 
-One final warning about floating point values: they might not be what you think they are! Internally the computer has to cramp these into 32 bits that don’t really love floating non-integer numbers. A lot of really smart people eventually came up with a standard compromise:
-Small values (closer to zero) have a higher precision than very large values. The larger the value, the courser becomes the resolution and steps become larger and larger.
+They are not infinitely precise.
+
+Internally, most floating-point numbers are stored using 32 bits. This is a compromise that allows a wide range of values, but not equal precision everywhere.
+
+Small values (close to zero) have higher precision.  
+As values grow larger, the resolution becomes coarser and the steps between representable numbers increase.
 
 ## CallToAction
-As a example how bad this can become, check out this:
+As an example of how visible this can become, look at the following setup.
 
-Can you figure out how many zeros you have to add to the factors to reproduce the example?
-
+Figure out how many zeros need to be added to the factors to reproduce the example.

@@ -1,107 +1,99 @@
-# Analyzing images
+# Analyzing Images
 
 ## Info
+As projects grow, trial and error is often no longer enough.
 
-On your journey into the world of procedural computer graphics you will reach teh point where trial and error is no longer good enough.
+Sometimes an image looks wrong.
+Sometimes an effect behaves in an unexpected way.
 
-Maybe your contraption do not whatnot expect.
+In these cases you need information. Understanding that information is the key to fixing the problem.
 
-Or you see an effect that looks unexpected and you you want to understand where it comes from.
+## Info
+One of the most useful tools for this is [ImageLevels].
 
-In these cases you need information and analyzing. 
-Understanding that information is the best pathways to knowledge.
+It samples a line through the image and maps the brightness of all color channels onto a graph.
 
-Let's look at some nice tools to analyst images.
+## Info
+In this example, the curves sometimes merge into a single line.
 
-The first one is ImageLevels we already encountered ii in the Topic on gradients.
-
-Imagine slicing a line through an image and at each pint we map the brightness of all colors channels onto a graph.
-
-In this case we can see how the curves sometimes merge where the image becomes grayscale.
+This happens where the image becomes grayscale, because all color channels have the same value.
 
 ## CallToAction
-
 Adjust the gradient settings to reproduce the example.
 
-# Color resolution
+
+# Color Resolution
 
 ## Info
+In this example, visible color steps appear in the secret image.
 
-In this example we can see tha color steps in the secret image. 
-
-It looks like the color resolution of our input image is crushed and forming visible edges.
+The color resolution of the input looks crushed, turning smooth gradients into hard edges.
 
 ## CallToAction
-
 Get rid of the edges.
 
-# Out of range
+
+# Out of Range
 
 ## Info
+Something is wrong with this image.
 
-Something happened to this image.
+Bright values are clipped, creating a visible edge where colors reach pure white.
 
-Its brights are cut off which leading to an ugly visible edge where the colors reach pure white.
-
-It might not be obvious at first glance but with [ImageLevels] it you see the edge immediately.
+This may not be obvious at first glance, but with [ImageLevels] the edge becomes clear immediately.
 
 ## CallToAction
+Use [ToneMap] to reduce the maximum brightness.
 
-Use [ToneMap] to adjust the max brightness.
 
-
-# Does not compute
+# Invalid Colors
 
 ## Info
+These colors are outside the valid range.
 
-On noo. These colors are completely messed up! If colors are negative very strange things will happen if you try to blend or render this image!
-
-The alpha channel should never exceed the range between 0 and 1.
-Most Image operator will clamp that alpha channel to that range.
+Negative color values can cause unpredictable results when blending or rendering an image.
 
 ## Info
+The alpha channel should always stay between 0 and 1.
 
-You can simply add a RemapColor operator to clamp.
+Most image operators clamp alpha automatically, but relying on that can hide problems.
 
-It samples colors from a gradient in the valid range from 0 to 1. And all illegal colors exceeding that will be clamped.
+## Info
+A simple fix is to add [RemapColors].
 
-## CallToAction
-
-Fix that example.
-
-
-# Color banding
-
-# info most displays use 8 bit in color resolution. These 256 color steps are sometimes not enough for smooth gradients.
-
-Can you see the ugly edges in this example?
+It samples colors from a gradient in the valid 0–1 range and clamps values outside that range.
 
 ## CallToAction
-
-If you use the ImageLevels you can narrow the shown Curve Range.
-
-It looks like the image is smooth. And yes, it uses 16bit so it has a much higher color resolution.
-
-It's not the image that contains these artifacts, it's your display and it's a very common problem.
-
-## CallToAction
-
-A trick to get rid of the color banding is to add some noise.
-
-Try to increase the smoothness by inserting a [Grain] operator.
+Fix the example.
 
 
-# Blur Blur
+# Color Banding
 
-## Finally let's look at this example.
+## Info
+Most displays use 8-bit color.
 
-We use a classic [Blur] operator, but the edges are not really smooth!
+That means 256 steps per channel, which is sometimes not enough for smooth gradients.
+
+## Info
+In this example, you can see visible banding.
+
+The image itself is smooth. TiXL uses 16-bit color here, so the data has much higher precision than the display.
+
+The artifacts come from the display, not from the image.
 
 ## CallToAction
+Use [ImageLevels] to narrow the curve range and confirm that the image data is smooth.
 
-Try to increase the smooth without adjusting the sample count.
+## CallToAction
+Reduce visible banding by inserting a [Grain] operator.
 
 
+# Blur Quality
 
+## Info
+This example uses a classic [Blur], but the edges still look rough.
 
+Increasing the sample count is not always the best solution.
 
+## CallToAction
+Improve edge smoothness without changing the blur sample count.

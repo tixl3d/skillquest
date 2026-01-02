@@ -1,82 +1,85 @@
-# Switching scenes
+# Switching Scenes
 
 ## Info
+For complex projects or setups, it can be necessary to switch between different materials, objects, cameras, or entire scenes.
 
-For complex projects or setups it can be necessary to switch between different materials, objects, cameras or scenes.
+All of these are command operators and share the same connection type.
 
-All of the above are command operators that share the same connection type.
-
-That means we can use a single operator to switch between them.
-
-## Info
-
-Imagine this operator like a fork on a track. You can either pick the left or the right side.
-
-The switch operator works similar, but because it's using a multi input it can switch between as many tracks as you want.
+This allows a single operator to switch between them.
 
 ## Info
+You can think of this operator like a fork in a track.
 
-The active branch is controlled by the Index parameter. As with all other index parameters in TiXL it starts counting with 0 and will roll over if it exceeds the count of connected inputs.
+You can choose either the left or the right path.
+
+The [Switch] operator works the same way, but because it supports multiple inputs, it can switch between many branches.
+
+## Info
+The active branch is controlled by the Index parameter.
+
+Like all index parameters in TiXL, it starts counting at 0 and wraps around if the value exceeds the number of connected inputs.
 
 ## CallToAction
+This is a simple example.
 
-Here is a simple example. 
+Reconnect the operators to match the reference.
 
-Try to reconnect to match the example.
 
-# Multiple switches
-
-## Info
-
-This example is slightly more complex, because we also use a [Switch] to control the [Material].
+# Multiple Switches
 
 ## Info
-
-Do you notice how the inactive parts of the graph are fading out?
-
-They are dormant and don't need to be updated.
-
-# ??
+This example is more complex because a [Switch] is also used to control the [Material].
 
 ## Info
+Notice how inactive parts of the graph fade out.
 
-The [Switch] operator has two magic index values!
+These branches are dormant and do not need to be updated.
 
-If you set the index to -1 none of the connected scenes will be active -- and everything is "disabled". That can be useful to temporarily disable one or more branches of your project.
+
+# Special Index Values
 
 ## Info
+The [Switch] operator supports two special index values.
 
-Inf you set the index to -2 ALL connections will be active.
+If the index is set to -1, none of the connected branches are active.
+
+This effectively disables all connected scenes and can be useful to temporarily turn parts of a project off.
+
+## Info
+If the index is set to -2, all connected branches are active at the same time.
 
 ## CallToAction
+Recreate the example.
 
-Try to recreate this example.
 
-# Execute nothing!
+# Execute Nothing
 
-Another method to disable all connected inputs is to use [Execute] and turn off its IsEnabled parameter.
+## Info
+Another way to disable all connected inputs is to use the [Execute] operator.
 
-Simple but effective.
+By turning off its IsEnabled parameter, nothing downstream will be executed.
 
 ## CallToAction
-
-Try to recreate the example
+Recreate the example.
 
 
 # Pick vs. Switch
 
 ## Info
+There are other operators that switch between values such as images, numbers, or meshes.
 
-There are many other different operators switch between other types likes Images, Values, Meshes, etc. But confusingly these operators are called [Pick...].
+These operators are called [Pick...] instead of [Switch].
 
 ## Info
+This distinction is intentional.
 
-This inconsistency is by design: Command is the only type in TiXL that can "undefined" or "inactive". All other operators (with very few exceptions) keep their last updated value.
+Command operators are the only operator type in TiXL that can become undefined or inactive.
 
-A [LinearGradient] will remain a valid texture in memory, even if it is no longer updated or used.
+Most other operators keep their last valid value.
+
+For example, a [LinearGradient] remains a valid texture in memory even if it is no longer updated or used.
 
 ## CallToAction
+Enough theory.
 
-Enough theory. Let's pick some images!
-
-Try to reproduce the example.
+Pick some images and reproduce the example.

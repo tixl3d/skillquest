@@ -1,71 +1,77 @@
 # From 3D to 2D
 
 ## Info
+The final output of most things you build in TiXL are images.
 
-The final output of most things you build in TiXL will be images.
+These are sometimes called textures or image buffers.
 
-We sometime s call them "Textures" or "Image buffers".
-
-You can check out the Skill Quest Topics on working with images to learn more about other methods to generate and use images.
-
-
-You use the [RenderTarget] operator to render 3d geometry into an image. It's one of TiXL's most important operators that you're going to need all the time.
-
-Ig might be useful to get some background knowledge how the RenderTarget works.
-
-Imagine the target to be a blank canvas that is prepared for all the geometry connected into it (I.e. connected left or above it).
+You can explore the SkillQuest topics on working with images to learn about other ways to generate and use them.
 
 ## Info
+The [RenderTarget] operator is used to render 3D geometry into an image.
 
-In the beginning of every frame it will first be cleared with a solid color. Then any "Draw" operator (that would be the teal colored command ops) can draw onto that canvas.
+It is one of the most important operators in TiXL and is used in many projects.
+
+It can be helpful to understand how the RenderTarget works internally.
 
 ## Info
+You can think of the RenderTarget as a blank canvas.
 
-In this example the clearing is disabled.
+All geometry connected to it (from the left or above) is prepared to be drawn onto this canvas.
+
+## Info
+At the beginning of each frame, the RenderTarget is cleared with a solid color.
+
+After that, any draw operator (the teal command operators) can render onto it.
+
+## Info
+In this example, clearing is disabled.
 
 ## CallToAction
-
-Try to reproduce the challenge.
+Reproduce the challenge.
 
 
 # Z-Buffer
 
 ## Info
+In computer graphics, an algorithm called the Z-buffer is used to ensure that distant objects are not drawn in front of objects that are closer to the camera.
 
-In computer graphics we use an algorithm called Z-Buffer to sort geometry so that distance objects are not drawn in front of geometry that are closer to the camera.
+The [RenderTarget] operator automatically provides a depth buffer for this purpose.
 
-The RenderTarget operator automatically adds a Depth Buffer for this. And every "draw" operator has parameters that control it or how to its.
-
-Operators are always drawn in the order they are connected.
-
+Each draw operator has parameters that control how it interacts with depth.
 
 ## Info
+Operators are still drawn in the order they are connected.
 
-In this playful example the orange Torus wants to be in the front.
+Depth testing determines whether a fragment is visible.
+
+## Info
+In this playful example, the orange torus should appear in front.
 
 ## CallToAction
+Solve the challenge.
 
-Try to solve this challenge.
 
+# Multisampling (MSAA)
 
-# Multi sampling (MSAA)
+## Info
+RenderTarget uses multisample anti-aliasing (MSAA) to smooth jagged edges.
 
-RenderTarget uses "Multi Sampling Anti Aliasing" (MSAA) to smoothen jagged edges. This tells the graphics card to render all edges with a higher resolution.
+This instructs the graphics hardware to render edges at a higher effective resolution.
 
 MSAA is enabled by default.
 
-As with all things in life, quality comes with a cost. In most cases you don't need to worry but for projects with 10s or 100s or RenderTargets that can really make a difference.
+## Info
+Higher quality comes at a performance cost.
 
-Sometimes you might even prefer a sharper look.
+In most projects this is not an issue, but scenes with dozens or hundreds of RenderTargets can be affected.
 
-This challenge compares the different modes.
+In some cases, a sharper look may even be preferred.
 
-Notice how MSAA only makes a different Mesh edges not for images and raymarched geometry.
+## Info
+This challenge compares different MSAA modes.
+
+Notice that MSAA affects mesh edges, but not images or raymarched geometry.
 
 ## CallToAction
-
-Try to find the correct settings to replicate the example.
-
-
-
-
+Find the correct settings to replicate the example.

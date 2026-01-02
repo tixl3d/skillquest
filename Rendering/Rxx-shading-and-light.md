@@ -1,63 +1,64 @@
-# Shading with light
+# Shading with Light
 
 ## Info
+So far, the default studio lighting has been used in all examples.
 
-So far we have been using the default stdio light for all examples.
+This setup consists of a 360-degree HDRI texture used for image-based lighting.
 
-This setup contains of a 360 degree texture HDRI map.
-
-Lets begin by turning of the light and set what happens.
+## Info
+To better understand how lighting affects shading, the light will first be turned off.
 
 ## CallToAction(SetEnvironment)
+The [SetEnvironment] operator provides multiple presets.
 
-The [SetEnvironment] operator comes with multiple presets.
+Use the "black" preset to disable image-based lighting.
 
-We can use the "black" preset to turn off the IBL lighting.
 
 ## CallToAction(PointLight)
+Add a [PointLight] and move it through the scene using 3D Perlin noise.
 
-Now we can add a [PointLight] and move it around in our scene using a 3d perlin noise.
-
-We can use the same position to draw a [Sphere] to indicate the position of our light.
+Use the same position to draw a [Sphere] as a visual indicator for the light position.
 
 ## CallToAction
+Recreate the example.
 
-Try to recreate the example.
 
-# Custom environments
+# Custom Environments
 
 ## Info
+A texture can be connected to [SetEnvironment].
 
-we can pass a texture into the [SetEnvironment]. It takes either a CubeMap or an HDR environment.
+It accepts either a CubeMap or an HDR environment texture.
 
 ## Info
-
-Let's create a custom environment by cycling a [LinearGradient].
-
-## CallToAction
-
-We already set up all the parameters in this example. But you still have to connect the operators to recreate the example.
-
-# ???
-
-## INfo
-
-If you want to see the HDR map in teh background have to make sure that the camera is et correctly after [SetEnvironment], so that the camera is applied to both, the scene and the background image.
+In this example, a custom environment is created by cycling a [LinearGradient].
 
 ## CallToAction
+All parameters are already set.
 
+Connect the operators to recreate the example.
+
+
+# Camera and Environment Order
+
+## Info
+To see the HDR environment in the background, the camera must be placed after [SetEnvironment].
+
+This ensures the camera affects both the scene geometry and the background image.
+
+## CallToAction
 Fix the operator order in this example.
 
 
 # Foggy
 
-A nice shading trick is to add a [SetFog] operator to colorize or darken objects in the background.
+## Info
+A useful shading technique is to add a [SetFog] operator.
+
+It can be used to darken or colorize objects based on distance.
 
 ## Info
-
-In this example the far view distance adds a lot of visual noise.
+In this example, the far view distance introduces too much visual noise.
 
 ## CallToAction
-
-Can you find the right distance to match the reference?
-
+Find the correct distance to match the reference.

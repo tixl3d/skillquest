@@ -1,39 +1,38 @@
-# Trigger Anim
+# Trigger-Based Animation
 
 ## Info
+One powerful use of triggers is the [TriggerAnim] operator.
 
-A very powerful use case for triggers is the [TriggerAnim].
-
-It’s very similar to his sibling [AnimValue] but does not respond to time but to events.
-
-## Info
-
-In this example, we use the [HasValueChanged] operator to send and event every time the noisy value has increased.
-
-We can use this signal to trigger an animation. And we can use this to sample a color from a gradient.
+It is similar to [AnimValue], but it does not follow time directly. Instead, it reacts to events.
 
 ## Info
+In this example, [HasValueChanged] sends a trigger whenever a noisy value increases.
 
-Of course in real projects the signal could be everything from an audio level, to a midi controller input to some message sent via OSC.
+This trigger starts an animation, which is then used to sample a color from a gradient.
+
+## Info
+In real projects, trigger signals can come from many sources.
+
+They might be audio levels, MIDI input, OSC messages, sensors, or other external events.
 
 ## CallToAction
+Solve the puzzle.
 
-Try to solve the puzzle.
 
-# Shake it like camera picture!
+# Camera Shake
 
 ## CallToAction
+Build a small camera shake effect.
 
-In this example we build a small camera shake effect.
+All parameters are already set. Connect the operators correctly to solve the example.
 
-All parameters are already set. You only need to connect the operators correctly.
 
-# Keeping things Complex
+# Combining Everything
 
 ## Info
-
-In this final example we bring everything together and build a complex animation.
+This final example combines several ideas into one animation.
 
 ## CallToAction
+All parameters are already set correctly.
 
-Once again, all parameters are already set correctly. You only have to figure out how to connect the operators.
+Figure out how the operators need to be connected.

@@ -1,81 +1,111 @@
-# ??
+# Drawing Meshes
 
 ## Info
+In TiXL, geometry made from polygons is called a mesh.
 
-In TiXL we call geometry made from polygons a "mesh". Internally a mesh is a set of triangles that are defined by connection 3 corners (i.e. "vertices").
+Internally, a mesh is a collection of triangles. Each triangle is defined by three corners, called vertices.
 
-There are many operators to create or modify meshes. We ill cover many of them in the upcoming topics. In this topic we will focus on different methods to draw meshes.
+## Info
+There are many operators to create and modify meshes.
+
+In this topic, the focus is on different ways to draw meshes.
 
 
 ## Info
+Most operators that draw meshes start with the word “Draw”.
 
-Most of the relevant ops are start with the word "Draw" and have the teal command color.
+They use the teal command color, which indicates that they render geometry.
 
 ## CallToAction
+Start simple.
 
-Let's start simple and draw a [Cube] and [Torus] mesh.
+Draw a [Cube] and a [Torus] mesh.
 
 
-# ???
-
-## Info
-
-DrawMesh already adds some default material and lighting. We will explain how to change this in the upcoming topics.
-
-Sometimes you din't need to even want shading.
-
-For instance to draw an image directory onto a screen we have seen the [Layer2d] operator earlier. But an even simpler method is [DrawMeshUnlit].
+# Unlit Drawing
 
 ## Info
+[DrawMesh] applies default material and lighting automatically.
 
-As with all Draw-operators it comes with a Color parameter that gets multiplied.
-
-Try to connect these ops to recrate the challenge.
-
-Tip: You don't need to adjust any parameters.
-
-
-# Simple solid image
+How to change materials and lighting is covered in later topics.
 
 ## Info
+Sometimes you do not want any shading at all.
 
-In an earlier topic we talked about [RenderTarget] as a canvas that gets cleared before using it.
+For example, when drawing an image directly onto a surface, shading can be distracting.
 
-Sometimes you might need a simple image that only contains a single color. 
+In earlier topics, [Layer2D] was used for this purpose.
 
-## Info
-
-Note that the parameters of the [RenderTarget] are adjust to a tine size of 1 pixel and that we disabled MSAA and depth buffer to make it even faster. it's totally O.C.D. but hey faster is better if it doesn't make a visual difference.
-
-# Transparent textures
-
-As you might have learned by now: transparency makes everything more complicated, because we can no longer rely on the Depth-Buffer to sort the geometry.
-
-And without depth buffer, distance objects could be draw on top of of nearby stuff, with some quite irritating results.
+An even simpler option for meshes is [DrawMeshUnlit].
 
 ## Info
+Like all draw operators, it includes a Color parameter that is multiplied with the result.
 
-In this challenge we want to use a transparent Ryoji pattern to cover a cube. We also have to adjust the draw parameters so that we can see the insides.
-
-To do this we have to do two things:
-
-## Info
-
-First we need to disable culling so the inside face -- that are facing away from the camera will actually be rendered.
-
-## Info
-
-Second we might need to adjust the alpha cut off parameter. This controls a threshold for which transparent pixels are considered as "holes" and will be "discarded".
+## Tip
+You do not need to adjust any parameters for this example.
 
 ## CallToAction
+Connect the operators and recreate the challenge.
 
-Try to complete the example.
 
-
-# Hatching something out
+# Solid Color Image
 
 ## Info
+Earlier, [RenderTarget] was introduced as a canvas that is cleared before drawing.
 
-There are a bunch of other operators to draw meshes. We will cover instance and field shaders later. But here is an interesting example that uses a special shader to draw a simple hatching style.
+## Info
+Sometimes a project needs a simple image that contains only a single color.
+
+## Info
+In this example, the [RenderTarget] is set to a size of one pixel.
+
+MSAA and the depth buffer are disabled to reduce overhead.
+
+This setup is intentionally minimal and optimized.
+
+## CallToAction
+Recreate the example.
 
 
+# Transparent Textures
+
+## Info
+Transparency makes rendering more complex.
+
+Once transparency is involved, the depth buffer can no longer reliably sort geometry.
+
+As a result, distant surfaces may appear in front of closer ones.
+
+## Info
+In this challenge, a transparent Ryoji pattern is applied to a cube.
+
+The goal is to see both the outside and the inside faces.
+
+## Info
+To achieve this, two things are required.
+
+First, back-face culling must be disabled so faces pointing away from the camera are still rendered.
+
+## Info
+Second, the alpha cut-off parameter may need adjustment.
+
+It defines a threshold at which transparent pixels are treated as holes and discarded.
+
+## CallToAction
+Adjust the draw settings and complete the example.
+
+
+# Hatching Style
+
+## Info
+There are additional operators for drawing meshes with specialized shaders.
+
+Instancing and field shaders are covered later.
+
+## Info
+This example uses a shader that produces a hatching-style look.
+
+It is a good example of how drawing operators can define visual style directly.
+
+## CallToAction
+Recreate the example.

@@ -1,97 +1,108 @@
-# "Color Grading"
+# Color Grading
 
 ## Info
+In professional design, adjusting and refining colors is called “grading”.
 
-Professional designers call the proceeds of adjusting and tweaking colors "grading". It often also deals with removing color tints or artifacts.
+It often involves shaping the overall look, but also removing unwanted color tints or visual artifacts.
 
-Again professional asks for precision. So we will need another tool for measuring.
+Precise work requires precise measurement.
 
 ## InfoFor(WaveForm)
-This time it's called with the misleading name [WaveForm] and it will take some getting used to. But believe me: you will quickly understand why every professional app uses it.
+The tool for this is called [WaveForm].
 
-Take a look at this example. At the bottom we can see the waveform overlay. It's similar to ImageLevels, but it not only shows a single curve for a slice through the image: it shows curves for all slices overlaid.
+The name can be misleading at first, but it is widely used in professional software.
 
-So you can quickly read all columns of the image and get an overview.
+It works similarly to ImageLevels, but instead of showing a single slice, it overlays slices from the entire image.
+
+This allows you to read brightness and color distribution across all columns at once.
 
 ## Info
+In this example, the curves on the left side merge into a single gray line.
 
-In this case we can see that the challenge somehow adjusted the saturation of parts of our image, because on the left side, all curved fall together into a single gray line.
+This shows that parts of the image have reduced saturation, because all color channels share the same value.
 
 ## CallToAction
 Try to reproduce the image.
 
-# Getting better Grades
+
+# ColorGrade: Gain, Gamma, Lift
 
 ## Info
+[ColorGrade] is a powerful operator for adjusting colors.
 
-[ColorGrade] is a very powerful operator to adjusts colors. And once again it's closely related to core tools of many professional color grading apps. So you will be able to apply the knowledge of the topic directly to other software.
-
-## Info
-
-Its core is the 3 parameters gain, Gamma and lift. To get a feeling for how they work let's look at an example. The linear gray grader goes from pure black to pure white.
+Its parameters are closely related to tools used in professional color grading software.
 
 ## Info
+The core parameters are Gain, Gamma, and Lift.
 
-If the gain, gamma and lift parameters are pure gray they are neutral without an effect. As always you can click the parameter names to reset to default.
+The reference gradient goes from pure black to pure white.
+
+## Info
+If Gain, Gamma, and Lift are pure gray, they are neutral and have no effect.
+
+You can click parameter names to reset them to their defaults.
 
 ## InfoFor(ColorGrade.Gain)
+Adjust Gain by dragging its color thumbnail with the right mouse button.
 
-Now use your right mouse button to drag the color thumbnail of **gain** up and down. Do you see the effect?
-
-It affects the lightest colors.
+It primarily affects the brightest parts of the image.
 
 ## InfoFor(ColorGrade.Lift)
+Adjust Lift in the same way.
 
-Try the same with **lift**. And it affects the dark colors.
+It primarily affects the darkest parts of the image.
 
 ## InfoFor(ColorGrade.Gamma)
-Now try the **gamma** color. It adjusts the overall brightness, without affecting the lights and darks.
+Adjust Gamma to change overall brightness without pushing only highlights or shadows.
 
-## Info
+## Tip
+Dragging the color thumbnail with the left mouse button adjusts the alpha channel.
 
-Tip: you can also drag the color thumb with the left button to adjust the Alpha channel and thus increase or decrease each effect.
+This scales the strength of the effect.
 
 ## CallToAction
 Recreate the challenge at the bottom.
 
-# Conforming colors
+
+# Removing a Color Cast
 
 ## Info
+In this level, the image has a visible blue color cast.
 
-In this level we will remove a color cast. Our example image looks too blue.
-
-In the wave form we can see how the blue curve is higher than the reds and greens.
-
-Our operator of choice for these kinds of tasks is the color grade. In this example it's already added. Select it.
+In the waveform, the blue curve sits higher than the red and green curves.
 
 ## Info
+[ColorGrade] is the appropriate tool for this task.
 
-Now click the color thumbnail of the gain parameter to open the color picker. 
-
-We will talk about the other parameters later.
-
-With pure gray the parameters have no effect. But if you start dragging the small handle in the color circle out of the gray center you will see an effect.
-
-To get rid of the color cast we want to move slightly away from that to is complementary color. In this case yellow.
+It is already present in the graph. Select it.
 
 ## Info
+Open the color picker for the Gain parameter.
 
-Tip: Holding shift key gives finer control.
+Pure gray has no effect.
+
+Moving away from gray introduces a color shift.
+
+To counter a blue cast, move slightly toward the complementary color: yellow.
+
+## Tip
+Hold the Shift key for finer control.
 
 ## Info
-TiXL's color picker is tweaked for this kind of operations because it shows more desaturated colors and keeps the highly saturated colors on the edges.
+TiXL’s color picker is tuned for grading work.
+
+It emphasizes usable, desaturated colors and keeps highly saturated colors near the edges.
 
 ## CallToAction
-Now try to find the right color by balancing the curves of the wave form.
+Balance the waveform curves to remove the color cast.
 
-# Going Hollywood
 
-## Info
-Many action movies like "Matrix" have a very distinct color grade -- sometimes called "teal/orange", "complementary" and sometimes just called "Hollywood look".
+# Teal and Orange
 
 ## Info
-The idea behind this is to make bright orange skin tons pop in front of a dark bluish/greenish background. Separating these complementary colors adds a color contrast without losing image details.
+Many action movies use a distinct “teal and orange” color grade.
+
+Warm highlights contrast with cool shadows, creating separation without losing detail.
 
 ## CallToAction(ColorGrade)
-
-Let's create this look. Insert the [ColorGrade] operator and adjust the lift and gain parameters.
+Insert a [ColorGrade] operator and adjust Lift and Gain to create the look.

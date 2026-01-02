@@ -1,121 +1,123 @@
-# Hello Vectors!
+# Vectors
 
 ## Info
+So far, float and integer values were used on their own.
 
-In the previous topics we have been talking about float and integer values.
+Now they are combined into vectors.
 
-In this topic we will combine them into “vectors”. You can imagine a vector as a group of values representing different components. Depending on the context these can be coordinates like x, y, z. Color channels like r, g, b or sizes like width and height.
-
-In tixl they can have a size of two, three and four components and consist of floating or integer values.
+A vector is a group of values that belong together.
 
 ## Info
-Let’s start by building some vectors!
+Depending on context, vector components can represent:
+- positions (x, y, z)
+- colors (r, g, b)
+- sizes (width, height)
 
-In this example we will use the [Vector3] to combine a noise and animValue to control the position of a text with a Vector.
+In TiXL, vectors can have two, three, or four components and can use floating-point or integer values.
+
+## Info
+Let’s start by building some vectors.
 
 ## CallToAction
+Use [Vector3] to combine a noise value and an animation value.
 
-Can you figure our the correct parameters?
+Use the result to control the position of a [Text] operator.
+
+Find the correct parameters to match the goal.
 
 
-# Breaking stuff
-
-## Info
-
-You can use the [Vec3Components] operator to access the individual components of a vector.
-
-In this example we want to position the [Text] operator to the [perlinNoise3] position.
-
-## CallToAction
-Try to solve the puzzle
-
-# How long is yours?
+# Accessing Vector Components
 
 ## Info
-
-We can use the [Length] operator to compute the “magnitude” of a vector. This can be quite useful.
-
-In this example, we want to draw circle with the correct size so that it touches our random point.
-
-Notice how we can use the handy [Vec2ToVec3] operator to add a value so we can connect it to the sphere’s position.
+The [Vec3Components] operator allows access to the individual components of a vector.
 
 ## CallToAction
-Try to solve this puzzle.
+Position the [Text] operator using the output of [PerlinNoise3].
+
+
+# Vector Length
+
+## Info
+The [Length] operator computes the magnitude of a vector.
+
+This is often useful when distance-like behavior is needed.
+
+## Info
+In this example, draw a circle large enough to touch a random point.
+
+The [Vec2ToVec3] operator can be used to add a missing component so connections work correctly.
+
+## CallToAction
+Solve the puzzle.
+
 
 # Scaling Vectors
 
 ## Info
-It can be very useful to scale the magnitude of a vector.
+Scaling a vector changes its magnitude.
 
-Here we’re extending our last example so that the random position oscillates between small and large values.
-
-## CallToAction
-
-Try to solve this puzzle.
-
-# Totally normal
-
-## Info
-
-The opposite of calculating a vectors length is to convert it into a direction with the length of 1. 
-
-This operation is called Normalization and is very common in computer graphics.
-
-## Info
-
-Let’s look that this interesting example: after normalizing a random vector its radius becomes one.
-
-When we use it to draw a point trail it becomes a sphere!
+In this example, the random position oscillates between small and large values.
 
 ## CallToAction
+Solve the puzzle.
 
-Try to solve this puzzle.
 
-# Orientation class
+# Normalization
 
 ## Info
+Normalization converts a vector into a direction with a length of one.
 
-In this example we use the random position to position and orient a point on the surface of a sphere.
+This is a very common operation in computer graphics.
+
+## Info
+Here, normalizing random vectors causes all points to lie on the surface of a sphere.
 
 ## CallToAction
-Can you figure out how to do it?
+Solve the puzzle.
 
-# Rotation
+
+# Orientation
 
 ## Info
-Sometimes we want to "construct" positions.
-
-In this can we take a vector and rotate it around a random axis with quite interesting results.
+In this example, a random direction is used to position and orient a point on the surface of a sphere.
 
 ## CallToAction
-Can you figure out how to do it?
+Figure out how to solve the puzzle.
 
-# Quat-what?
 
-## Info
-
-Speaking of rotations. Sooner or later you will hear the term “quaternion” with various undertones of mathematical mastery, ignorance or pure angst. 
-
-But you don't have to understand how they work to use them, though.
+# Rotating a Vector
 
 ## Info
+Sometimes positions are constructed intentionally.
 
-They are a vector with 4 components x, y, z, and w and very useful to define and blend rotations.
-
-Internally tixl uses quaternions all over the place. But they are rarely used in parameters, because most people will not be able to read or even enter a rotation in this format.
-
-## Info
-
-Most rotation parameters in TiXL use Euler angles that come with their only bag of problems. 
-
-In the few cases where we actually need a "precise" rotation, TiXL will ask for an axis and a rotation angle around it.
-
-So the only really confusing thing about quaternions in TiXL will be that it assumes Vector4 to be colors!
-
-## Info
-
-Here is a rare example for a use-case: blending between two rotations.
+In this case, a vector is rotated around a random axis to create structured motion.
 
 ## CallToAction
+Solve the puzzle.
 
-Try to solve this puzzle.
+
+# Quaternions
+
+## Info
+Sooner or later, the term “quaternion” comes up when talking about rotations.
+
+Understanding the math is not required to use them in TiXL.
+
+## Info
+A quaternion is a four-component rotation representation: x, y, z, and w.
+
+It is useful for defining and blending rotations.
+
+## Info
+TiXL uses quaternions internally in many places.
+
+Most parameters use simpler representations, such as Euler angles or axis–angle rotations.
+
+## Info
+One confusing detail is that Vector4 values are often interpreted as colors.
+
+## Info
+This example shows a rare case where quaternions are used directly: blending between two rotations.
+
+## CallToAction
+Solve the puzzle.

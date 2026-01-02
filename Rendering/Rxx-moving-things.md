@@ -1,173 +1,175 @@
-# Moving things
+# Moving Things
 
 ## Info
+In computer graphics, positions are defined using three values along the x, y, and z axes.
 
-In computer graphics positions are defined as 3 values on the axis x, y, z.
+In TiXL’s coordinate system, x points to the right, y points upward, and z points toward the camera.
 
-In TiXL's coordinate system X is pointing right, y up and z- towards the camera.
-
-You can use your thumb, pointing and middle finger of your right hand to remember their orientation.
-
-## Info
-
-Other software prefer different coordinate systems (e.g. xy forming the floor plan of CAD applications for architects).
-
-With TiXL's default camera, 0,0,0 is in the middle of the screen so that a object that is 2 units high precisely touches the upper and bottom borders of the screen.
+You can use the thumb, index finger, and middle finger of your right hand to remember their orientation.
 
 ## Info
+Other software may use different coordinate systems.
 
-We can use the [AnimValue] and [Vector3] to build a small animation.
+For example, some CAD applications use x and y as the ground plane.
 
-We will cover both operator in detail later.
+With TiXL’s default camera, the position (0, 0, 0) is centered on the screen, so an object that is 2 units tall touches both the top and bottom edges of the view.
+
+## Info
+We can use [AnimValue] and [Vector3] to build a simple animation.
+
+Both operators will be covered in more detail later.
 
 ## CallToAction
-
 Adjust the values to recreate the reference example.
+
 
 # Transform
 
 ## Info
+Instead of changing an object’s position directly, you can keep it unchanged and define an offset that determines how it is drawn.
 
-Instead of setting the position of an object we can leave its position unchanged and instead define an offset to where it should be drawn.
-
-This offset is called "Transformation", and can include position, rotation and scale.
-
-## CallToAction
-
-Let's try to recreate the animation by combining these operators.
-
-All parameter in this examples are already set correctly. You only have to connect the ops in the correct order.
-
-
-# Combining transforms
-
-## Info
-
-If you apply one transformation only another they will be joined to create a new transform.
-
-You don't need to know or even understand math behind this. But if you're curious, you can visit the topic on "Matrices" later.
-
-## Info
-
-You can imagine each of the these transformation steps like the steps in a dance routing. After each step you stand at a new position, looking towards a new position. We can call this the "local coordinate system".
+This offset is called a transformation and can include position, rotation, and scale.
 
 ## CallToAction
+Recreate the animation by combining the given operators.
 
-Let's build an small example. Connect the [AnimVec3] to the [Transform] operator to create a simple eye animation.
+All parameters are already set correctly. Only the operator order needs to be fixed.
 
-You don't have to adjust any parameters. You connect the operators.
 
-# Stacking transforms
+# Combining Transforms
 
 ## Info
+When multiple transformations are applied, they are combined into a single transformation.
 
-Now ewe can combine this animated transform with another transform to move it towards the left.
+You do not need to understand the underlying math for now, but the topic of matrices is available later if you are curious.
+
+## Info
+You can think of each transformation step like a step in a dance routine.
+
+After each step, you stand at a new position and face a new direction.
+
+This is often referred to as the local coordinate system.
+
+## CallToAction
+Build a small example by connecting [AnimVec3] to [Transform] to create a simple eye animation.
+
+No parameter changes are required.
+
+
+# Stacking Transforms
+
+## Info
+You can combine an animated transform with another transform to offset it further, for example by moving it to the left.
+
 
 # Instancing
 
 ## Info
+In this step, a transform is not only used to define where something is drawn.
 
-In this step we are doing something special, because we are not only using a Transform to define something should be drawn.
-
-We're going to draw the same thing at two different positions!
-
-Computer geeks call this "instancing". Ant it's great because you can define and adjust all copies at once.
+The same object is drawn multiple times at different positions.
 
 ## Info
+This is called instancing.
 
-Instance is a very powerful concept and TiXL has many different methods to use it.
-
-## CallTAction
-
-Try to replicate the example.
-
-# Transform order
+It allows all copies to be defined and adjusted together.
 
 ## Info
-
-When drawing multiple instances with [Transform] operators, you can imagine each branch like a story with a serious of events like "move right", "turn left", "make everything smaller", "now draw!".
-
-Each step is an operator being applied at the current local coordinate system.
-
-Each step sounds simple and logical.
-
-But if you mirror the world first, rotating left ends up as a rotation right! So always walk the path step by step.
-
-## Info
-
-There are many operators related to moving things around. We can group them by what they're moving. Live images, Particles. Geometry etc.
-
-Although they work very similar, the "teal command" [Transform] operator are different, because they will be combined into a single instruction and are basically for free.
-
-We'll be cover the other types in their respective chapters. For now let's look at some move commands.
-
-## Info
-
-The [Group] operator comes with build in transform parameters, which is useful to group and move a bunch of things in a single step.
+Instancing is a powerful concept, and TiXL provides multiple ways to work with it.
 
 ## CallToAction
+Replicate the example.
 
-Try to recreate this challenge using the given operators.
 
-# Simpler transformations
+# Transform Order
 
 ## Info
+When drawing multiple instances using [Transform] operators, each branch can be thought of as a sequence of events.
 
-Sometimes you only need to rotate, scale or offset because it makes it easier to read the graph.
+Examples include “move right,” “rotate,” “scale,” and finally “draw.”
 
-Keep in mind that the order in which they are connected is important. Rotating first than moving results onto a different position than first moving and then rotating.
+Each operator is applied in the current local coordinate system.
+
+## Info
+The order matters.
+
+If the world is mirrored first, a rotation to the left may appear as a rotation to the right.
+
+Always follow the chain step by step.
+
+## Info
+There are many operators related to movement, depending on what is being moved, such as images, particles, or geometry.
+
+The teal command-style [Transform] operators are special because they are combined into a single instruction and are effectively free.
+
+Other movement operators are covered in their respective chapters.
+
+## Info
+The [Group] operator also provides built-in transform parameters.
+
+This is useful for moving or rotating multiple objects together.
 
 ## CallToAction
+Recreate the challenge using the given operators.
 
-Try to combine these operators in the right order without changing any of the parameters.
 
-Typ: You can select drag a horizontal slice of the operator stack to rearrange the order.
+# Simpler Transformations
+
+## Info
+Sometimes it is clearer to use separate operators for rotation, scaling, or offset.
+
+The connection order is still important.
+
+Rotating first and then moving produces a different result than moving first and then rotating.
+
+## CallToAction
+Combine the operators in the correct order without changing any parameters.
+
+Tip: you can drag a horizontal slice of an operator stack to reorder it.
+
 
 # Spreading
 
 ## Info
+Sometimes it is useful to arrange multiple instances in space.
 
-Sometimes it's useful to arrange the connected operators. The [Spread] operator can help with this.
+The [Spread] operator can help with this.
 
 ## CallToAction
-
-Try to recreate this challenge using the given operators.
+Recreate the challenge using the given operators.
 
 
 # Repeating
 
 ## Info
+The [RepeatTransform] operator draws its input multiple times.
 
-The [RepeatTransform] renders the connected input multiple times. This can be useful for some tasks. But keep in mind that this can become very slow quickly.
+This can be useful, but it can become slow when used excessively.
 
-We will cover hot o replicate hundreds or even millions of objects in the topic on instancing.
-
-
-## CallToAction
-
-Try to recreate this challenge using the given operators.
-
-
-# 
-
-## Info
-
-Finally it is sometimes useful to know at which position a serious of transformations end up.
-
-The [Locator] operator needs to be connected like it is something that is drawn.
-
-But instead of rendering something it keeps tis current position in world space.
-
-## Info
-
-You can use its second output to get this position.
-
-Creating a connection from it needs some practice though: Do you see the small triangle at the bottom right corner?
-
-That's the "additional output" indicator. Open it with your left mouse button and drag out the position output.
-
-Sadly the [Text] operator only has xy position. So we have to use a separate [Transform] operator.
+Efficient ways to render hundreds or millions of instances are covered later.
 
 ## CallToAction
+Recreate the challenge using the given operators.
 
-Try to recreate this challenge using the given operators.
+
+# Locator
+
+## Info
+Sometimes it is useful to know the final world-space position after a sequence of transformations.
+
+The [Locator] operator is connected like a drawable object.
+
+Instead of rendering geometry, it stores the current position.
+
+## Info
+The second output provides this position.
+
+To access it, open the additional output indicated by the small triangle in the bottom-right corner and drag out the position output.
+
+## Info
+The [Text] operator only supports x and y positioning.
+
+A separate [Transform] operator is therefore required.
+
+## CallToAction
+Recreate the challenge using the given operators.

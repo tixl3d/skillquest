@@ -1,126 +1,132 @@
-# Transforming meshes
+# Transforming Meshes
 
 ## Info
+This chapter focuses on generating geometry.
 
-Let's talk about generating geometroy.
+As mentioned earlier, each mesh consists of two buffers stored on the GPU.
 
-As mentioned earlier, each mesh is two buffers stored on your GPU. One for a list of corners (vertices) and a second one for a list of triangles defined by references to 3 of these vertices.
-
-## Info
-
-You might remember the [Transform] operator and how it can be stacked to build more and more complete transformations.
-
-The [TransformMesh] operator looks the same and has the same parameters and even leads to the same visual results.
-
-But don't be fooled! Because it's working completely different:
-
-Every [TransformMesh] creates a NEW mesh.
+One buffer contains a list of vertices (corner points), and the second contains a list of triangles defined by references to three of these vertices.
 
 ## Info
+You may remember the [Transform] operator and how it can be stacked to build increasingly complex transformations.
 
-Try to guess how many mesh buffers are used in this example. Have number in mind before pressing continue...
+The [TransformMesh] operator looks similar, has the same parameters, and produces the same visual result.
+
+However, it works very differently.
+
+Each [TransformMesh] creates a **new mesh**.
 
 ## Info
-It's 3. Most people didn't see that coming: 
+Try to guess how many mesh buffers are used in this example.
 
-The first the actual cube.
+Keep a number in mind before continuing.
 
-The second is a rotated copy.
+## Info
+It is three.
 
-The 3rd is a new larger buffer, that includes both.
+The first buffer contains the original cube.
 
-This final buffer is then drawn.
+The second buffer contains a rotated copy.
+
+The third buffer is a new, larger mesh that combines both.
+
+This final buffer is what gets drawn.
 
 ## CallToAction
+Recreate the example.
 
-Try to recreate the example.
 
-# Combining meshes
-
-## Info
-
-Picking up from the last example you might be wondering while TIXL uses this method? It sounds slightly less efficient, and you are totally right. But...
+# Combining Meshes
 
 ## Info
+Continuing from the previous example, you might wonder why TiXL uses this approach.
 
-... it's a compromise that will be faster in most cases. The graphics card has a very hard time individually drawing many small objects (small as in very few polygons).
-
-It's much faster to draw a single object with millions of faces that 1000 cubes with 12 faces.
-
-## Info
-
-Draw something -- anything really -- comes with a lot of overhead. These draw operators are called "draw calls". And if you have more than a couple of thousand draw calls per frame, your animation will no longer run smooth. No matter how fast your graphics card is.
+It may sound less efficient at first, and in some cases it is.
 
 ## Info
+However, this is a deliberate trade-off that is faster in most real-world scenarios.
 
-There are many methods to cleverly draw complex stuff with few calls.
+Graphics cards struggle with drawing many small objects, where “small” means very few polygons.
 
-Combining many small meshes into a single larger geometry is one of them.
+It is much faster to draw a single object with millions of faces than to draw a thousand cubes with twelve faces each.
+
+## Info
+Each draw operation comes with overhead.
+
+These operations are called draw calls.
+
+If you exceed a few thousand draw calls per frame, performance will drop significantly, regardless of how powerful the GPU is.
+
+## Info
+There are many techniques to render complex scenes with few draw calls.
+
+Combining many small meshes into a single larger mesh is one of them.
 
 ## CallToAction
+Build the example.
 
-Let's try to build this example. 
-Some of the operators already have the correct parameters.
+Some operators already have their parameters set correctly.
 
-# A temple
 
-## Info
-
-Starting from small building blocks you can create very complex geometry by repeating and combining it into more and more complex objects.
+# A Temple
 
 ## Info
-
-Because meshes are not only instructions but also buffers that contain the results of these instructions TiiXL will only create and update them if any of their parameters got changes.
-
-## Info
-
-This is called "caching" When operators on the graph fade out slight, you know they are cached. That's a great thing: Them more of your graph is cached, the faster TiXL can render it.
+Starting from small building blocks, very complex geometry can be created by repeating and combining them step by step.
 
 ## Info
+Meshes are not just instructions but buffers that store computed results.
 
-Let's take this example. We use a [RadialRepeatMesh] and [GridRepeatMesh] to create a small building.
+TiXL only recreates and updates these buffers when one of their parameters changes.
+
+## Info
+This behavior is called caching.
+
+When operators in the graph fade slightly, they are cached.
+
+The more of your graph is cached, the faster TiXL can render the scene.
+
+## Info
+In this example, [RadialRepeatMesh] and [GridRepeatMesh] are used to construct a small building.
 
 ## CallToAction
+Figure out how to repeat the beveled cubes to form columns and walls.
 
-Can you figure out how to repeat the bevelled cubes to create its columns and walls?
 
-
-# Merged vertices
-
-## Info
-
-We want to generate and render objects as fast as possible. For that TiXL resuses vertices (I.e. Corner points) if possible.
+# Merged Vertices
 
 ## Info
+For best performance, TiXL reuses vertices whenever possible.
 
-In this plane we want o apply a [Scatter] effect. But somehow it doesn't work as expected because the vertices between the faces are literally the sam.e So there can't be gaps between them.
+Vertices that occupy the same position are shared between faces.
 
 ## Info
+In this plane, a [Scatter] effect is applied.
 
-To fix that we can use the [SplitVertices] operator.
+It does not behave as expected because vertices between adjacent faces are shared.
+
+Since the vertices are the same, gaps cannot form between faces.
+
+## Info
+To fix this, the [SplitVertices] operator can be used.
 
 ## CallToAction
+Recreate the example.
 
-Try to replicated the example.
 
 # UVs
 
 ## Info
+Applying an image to a mesh is called texturing.
 
-We call the combinates of a mesh with an image "texturing". 
-
-To define where each part of the image should go, each vertex stores the image position in the U and V attributes.
-
-## Info
-
-Most objects you load or generate already come with such a "UV-set", even if you're not using it.
-
-But sometimes it's useful to change these coordinates.
+To define how the image maps onto the mesh, each vertex stores image coordinates in its U and V attributes.
 
 ## Info
+Most generated or imported meshes already contain a UV set, even if it is not actively used.
 
-In this example we are project a new coordinate system onto our [Torus] Mesh.
+In some cases, it is useful to modify these coordinates.
+
+## Info
+In this example, a new UV coordinate system is projected onto a [Torus] mesh.
 
 ## CallToAction
-
-Try to reproduce the example.
+Reproduce the example.

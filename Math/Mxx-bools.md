@@ -1,79 +1,86 @@
-# Are you a bit? Yes. Yes. No.
+# Boolean Values
 
 ## Info
-Booleans or “bools” are also numbers. Just very small ones: Boolean values can be zero (false) or one (true). A Boolean number represents a single bit. 
+Booleans, or “bools”, are numbers with only two possible values.
 
-In tixl Boolean values have an important role because they are used be parameters that enable things (I.e. everything with a checkbox) and by trigger events. We will discuss triggers in the next topic.
-
-## CallToAction
-
-In this example we define a Boolean with the bool operator. 
-You can toggle it directly in the graph. To move the operator you can use the drag handle on the left edge.
-
-# Blinking
+They can be zero (false) or one (true). A boolean represents a single bit.
 
 ## Info
-In this first example we use the AnimBool operator to generate a Boolean value that “blinks” true for a single frame at the beginning of a bar.
+In TiXL, booleans are important because they are used by parameters that enable or disable things, such as checkboxes.
+
+They are also used to drive trigger-like behavior. Triggers are covered in the next topic.
 
 ## CallToAction
+Define a boolean value using the [Bool] operator.
 
-Try to recreate the example.
+You can toggle it directly in the graph. To move the operator without toggling it, use the drag handle on the left edge.
 
-# Bool... what?
+
+# Animated Boolean
 
 ## Info
+In this example, the [AnimBool] operator generates a boolean value that turns true for a single frame at the beginning of a bar.
 
-You might be wondering about the name? Why don’t we call it booleans not bits?
-This name comes from a Mathematician that invented a system to describe logical expression by combining these true and false values.
-
-One of these expressions is called “and”. Its result is true only if both inputs are true.
+This kind of signal is useful for events and rhythmic logic.
 
 ## CallToAction
-These expressions can be extremely powerful to define procedural animations.
+Recreate the example.
 
-In this example we combine phases of short flashes with phases silences.
 
-Can you solve the puzzle?
-
-# This is a test...
-
-## CallToAction
-In this example we test if a noise value is between -0.1 and 0.1.
-
-Can you figure out how?
-
-# Let's have it All!
+# Boolean Logic: And
 
 ## Info
-When you are building more and more complex projects you might end up [and] all over the place.
-You might notice that chaining multiple and operators is kind of cumbersome.
+The term “boolean” comes from a mathematician who developed a system to describe logic using true and false values.
 
-Pro tip: unless you want animate one of the and parameters (eg to only enable an effect for sometime) you can always use the [all] operator instead of [and].
+One of the basic operations is “and”.
 
-This uses a multi input and returns only true, if all of the connected inputs are true.
-
-Like in this example.
+The result is true only when both inputs are true.
 
 ## CallToAction
+Combine phases of short flashes with phases of silence using boolean logic.
 
-# Or and Any
+Solve the puzzle.
+
+
+# Boolean Logic: Range Test
+
+## CallToAction
+Test whether a noise value is between -0.1 and 0.1.
+
+Figure out how to solve the puzzle.
+
+
+# Boolean Logic: All
 
 ## Info
-The relaxed siblings of the [And] and [All] operators are called [Or] and [Any].
+As projects grow, chaining many [And] operators can become cumbersome.
 
-They return true if any of the inputs are true.
+## Info
+Unless you need to animate individual inputs, you can use the [All] operator instead.
 
-In this example we use multiple sequence anim operators to simulate a drum pattern. 
+It accepts multiple inputs and returns true only if all connected inputs are true.
 
 ## CallToAction
+Replace the chain of [And] operators with [All] and recreate the example.
 
-Let’s make it for all “parts” of the rhythm.
+
+# Boolean Logic: Or and Any
+
+## Info
+The more relaxed siblings of [And] and [All] are [Or] and [Any].
+
+They return true if at least one input is true.
+
+## Info
+In this example, several sequence animation operators are combined to simulate a rhythm pattern.
+
+## CallToAction
+Extend the logic so it works for all parts of the rhythm.
 
 
-# Not
+# Boolean Logic: Not
 
 ## CallToAction(Not)
+Sometimes you need the opposite boolean value.
 
-Sometimes you need to invert an Boolean. You can use the [Not] operator for this.
-
-Try to solve this example.
+Use the [Not] operator to invert the signal and solve the example.

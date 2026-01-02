@@ -1,125 +1,129 @@
 # Rendering
 
 ## Info
+TiXL uses physically based rendering (PBR) for lighting and materials.
 
-TiXL uses physically based rendering (PBR) to define light and materials. This defines material properties (like "roughness" and "metallic") and direct and indirect image based lighting (IBL).
+This model defines material properties such as roughness and metallic, and combines direct lighting with image-based lighting (IBL).
 
-This topic will walk you through everything you need to know.
+This chapter introduces the essential concepts needed to work with materials.
 
 ## Info
+By default, TiXL uses a predefined studio lighting setup.
 
-By default TiXL uses a predefined default studio setup.
-
-The default material is too rhough to see it, but we can insert a new [Material] to change that.
+The default material is too rough to clearly show reflections, so a new [Material] operator is added to adjust this.
 
 ## CallToAction
+Add a [Material] operator and adjust its roughness to match the reference.
 
-Add the [Material] and adjust its roughness to match the reference.
 
-
-# Is it shiny?
-
-## Info
-
-The metal parameter defines wether a surface behaves like a metal or a non-metallic material. 
-
-"Non-metals" like plastic or stone show their color through diffuse lighting: The light will enter the surface and then exit with some color. 
-
-"Metals" show their color only in the reflection.
+# Is It Shiny?
 
 ## Info
+The Metallic parameter defines whether a surface behaves like a metal or a non-metal.
 
-In theory ths parameter should be 0 or 1 (and nothing in between). But TiXL will not enforce this rule.
+Non-metallic materials such as plastic or stone show their color through diffuse lighting.
+
+Light enters the surface and exits tinted by the material color.
+
+## Info
+Metallic materials show their color primarily through reflections.
+
+They do not use diffuse lighting in the same way.
+
+## Info
+In theory, the Metallic parameter should be either 0 or 1.
+
+TiXL does not enforce this rule, allowing intermediate values.
 
 ## CallToAction
+Study the reference example and observe the difference.
 
-Take a look at this reference example. Can you see the difference?
+Recreate it.
 
-Try to rebuild it.
 
-# ????
-
-## Info
-
-Until now we have been using the color parameters of [SetMaterial]. 
-
-But each of them also comes with a Texture input that allows to connect an image.
-
-## CallToAction
-
-Try to recreate this color example.
-
-# Multi channel textures
-
-The texture-prameter for roughnessMetallicOcclusion is special. It requires a channel map that defines earch in tis red, green and blue channels.
+# Material Textures
 
 ## Info
+So far, only color parameters of [SetMaterial] have been used.
 
-We can use the [Combine3Channels] operator to define such complext materials.
+Each of these parameters also provides a texture input that allows images to be connected.
 
 ## CallToAction
+Recreate the color example using texture inputs.
 
-Try to recreate this example.
+
+# Multi-Channel Textures
+
+## Info
+The roughnessMetallicOcclusion texture parameter is special.
+
+It expects a channel-packed texture where each property is stored in a different color channel.
+
+## Info
+The [Combine3Channels] operator can be used to construct such textures.
+
+## CallToAction
+Recreate the example.
+
 
 # Alpha
 
 ## Info
+The base color of a material is called the albedo.
 
-The basic color of a material is called "albedo". That's latin for "lightness" and similar to "diffuse" color. It's the base color of the material without shading or shadows.
+The term comes from Latin and refers to lightness, similar to diffuse color.
 
-Its alpha channel defines the opacoty of the material.
+It represents the material color without shading or shadows.
 
-In this example we slide an alpha gradient across the material.
+## Info
+The alpha channel of the albedo defines material opacity.
+
+In this example, an alpha gradient is animated across the surface.
 
 ## CallToAction
+Reproduce the animation.
 
-Try to reproduce this animation.
 
-
-# Emitting light
-
-## Info
-
-Sometimes you want to have light emmitting materials. You can achive this with the emission texture and color parameters.
-
-Texture and color paramters are always multiplied. The default emissive color is black, so texture will not be visible until you increase the brightness of the emissive color.
+# Emitting Light
 
 ## Info
+Materials can emit light using the emission color and emission texture parameters.
 
-Emissive HDR colors that are brighter than 1 look especially nice when applying a [Bloom] post processing effect.
+The texture and color values are multiplied.
+
+The default emission color is black, so emission textures remain invisible until the color brightness is increased.
 
 ## Info
+HDR emission values greater than 1 work particularly well when combined with a [Bloom] post-processing effect.
 
-In this example we increased the brightness of the [RyojiPatern]'s highlight color to create a glow effect.
+## Info
+In this example, the highlight color of [RyojiPattern] is brightened to create a glow effect.
 
 ## CallToAction
+Recreate the example.
 
-Try to recreate the example.
 
-# Normal mapping
-
-## Info
-
-We will cover raymarching SDFs in a detail later. But since they use the same material and rendering algorithms we can use it in this example to discuss "normal maps".
-
-These are textures that use their color channels to store how the surface is curved. This can be nice to add "bump" details to a procedural object.
+# Normal Mapping
 
 ## Info
+Raymarched SDFs will be covered in detail later.
 
-Creating normal maps can be tricky because there are multiple diffrerent formats. We can use the [NormalMap] operator to convert a gratscale height map into a normal map.
+Since they use the same material and lighting system, they can be used here to demonstrate normal mapping.
 
 ## Info
+Normal maps store surface curvature information in their color channels.
 
-In this example we animate a [FractalNoise] operator to drive the normal map. But we have to make it seamless to avoid artefact where the patterns repeats on the other side.
+They are commonly used to add fine surface detail without increasing geometry complexity.
+
+## Info
+Normal map formats vary.
+
+The [NormalMap] operator converts a grayscale height map into a normal map.
+
+## Info
+In this example, a [FractalNoise] operator is animated to drive the normal map.
+
+The noise must be seamless to avoid visible artifacts where the pattern wraps.
 
 ## CallToAction
-
-Try to recreate this example.
-
-
-
-
-
-
-
-
+Recreate the example.

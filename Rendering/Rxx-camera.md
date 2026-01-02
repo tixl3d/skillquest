@@ -1,82 +1,84 @@
-# Helicopter camera
+# Helicopter Camera
 
 ## Info
+So far, the [Transform] operator has been used to move objects.
 
-So far we have used the [Transform] op to move things around. Alternatively we can move the camera to look at things from different positions and directions.
-
-## Info
-
-Within the SkillQuest interactive camera control is disabled to keep things simple. So we'll have to use operators for this.
+Alternatively, the camera itself can be moved to view the scene from different positions and directions.
 
 ## Info
+Within SkillQuest, interactive camera controls are disabled to keep things focused.
 
-A simple but effect operator is [OrbitCamera]. It spins the camera around a center and has parameters that allows to control its distance and orientation.
-
-## Info
-
-# Jump cuts
+Camera movement is therefore controlled entirely through operators.
 
 ## Info
+A simple but effective operator for this is [OrbitCamera].
 
-Many parameters of [OrbitCamera] come in pairs of two where the first component describes the actual angle and the second adds a "wobble" amount to add some secondary camera movement.
+It rotates the camera around a center point and provides parameters to control distance and orientation.
+
+
+# Jump Cuts
 
 ## Info
+Many [OrbitCamera] parameters come in pairs.
 
-With this you can define some interesting orbital flight paths.
+The first value defines the base angle, while the second adds a wobble component for secondary motion.
+
+## Info
+This allows the creation of more dynamic orbital flight paths.
 
 ## CallToAction
+These parameters are already adjusted in this example.
 
-We already adjust these parameters in this example.
+Control the random offset so the camera jumps to a new random position on every beat.
 
-Your task is to control random offset so we set a camera to a new random position on every beat.
 
 # Camera Zoom
 
 ## Info
-The [Camera] operator is the workhorse for most camera work in TiXL. It defines a gemara by setting a view position and target.
+The [Camera] operator is the main camera operator in TiXL.
+
+It defines a camera by setting a view position and a target.
 
 ## CallToAction
+In this example, animate the FieldOfView parameter to zoom into the image.
 
-In this example the FieldOfView needs to be animated so that we zoom into the image.
 
-# Camera move
+# Camera Move
 
 ## Info
-
-In this case we want to keep that moving cube in view.
+In this case, the goal is to keep the moving cube within the camera view.
 
 ## CallToAction
+Connect the operators so the camera follows the cube.
 
-Try to connect operators. All parameters are already set correctly.
+All parameters are already set correctly.
 
 
-# ???
-
-## Info
-
-Just like [Transform] the camera only affects its input (i.e.everything connected on its left side).
+# Camera Override Rules
 
 ## Info
+Like [Transform], a camera only affects its input.
 
-But unlike [Transform] camera can't be combined. The last camera (the one furthest to the left) will override all previous cameras.
+This means it applies only to operators connected on its left side.
+
+## Info
+Unlike [Transform], cameras cannot be combined.
+
+The last camera in the chain (furthest to the left) overrides all previous cameras.
 
 ## CallToAction
+Replicate the example by arranging the camera operators correctly.
 
-Try to replicate this example.
 
-# Scene in a scene
-
-## Info
-
-A very important detail is that [RenderTarget] sets a new default camera for all its content.
-
-This will neatly keep scenes apart.
+# Scene in a Scene
 
 ## Info
+[RenderTarget] establishes a new default camera for everything rendered inside it.
 
-In this example we render another scene on then use it as texture for a cube.
+This keeps scenes cleanly separated.
+
+## Info
+In this example, a secondary scene is rendered and then used as a texture on a cube.
 
 ## CallToAction
-
-Try to replicate the example.
-
+Replicate the example.
