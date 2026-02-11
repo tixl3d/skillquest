@@ -1,32 +1,34 @@
-# Moving Things
+# Moving Things  &dI137UJ
 
-## Info
+## Info &Z3p2bn8
 In computer graphics, positions are defined using three values along the x, y, and z axes.
 
-In TiXL’s coordinate system, x points to the right, y points upward, and z points toward the camera.
+In TiXL's coordinate system, x points to the right, y points upward, and z points toward the camera.
 
 You can use the thumb, index finger, and middle finger of your right hand to remember their orientation.
 
-## Info
+## Info &twFwgaa
 Other software may use different coordinate systems.
 
 For example, some CAD applications use x and y as the ground plane.
 
-With TiXL’s default camera, the position (0, 0, 0) is centered on the screen, so an object that is 2 units tall touches both the top and bottom edges of the view.
+With TiXL's default camera, the position (0, 0, 0) is centered on the screen, so an object that is 2 units tall touches both the top and bottom edges of the view.
 
-## Info
+## Info &iHKZPZi
 We can use [AnimValue] and [Vector3] to build a simple animation.
 
 Both operators will be covered in more detail later.
 
-## CallToAction
-Adjust the values to recreate the reference example.
+## CallToAction(Vector3)  &03HZFiX
+Connect the operator to the [Vector3] to create the reference animation.
+
+
 
 
 # Transform
 
 ## Info
-Instead of changing an object’s position directly, you can keep it unchanged and define an offset that determines how it is drawn.
+Instead of changing an object's position directly, you can keep it unchanged and define an offset that determines how it is drawn.
 
 This offset is called a transformation and can include position, rotation, and scale.
 
