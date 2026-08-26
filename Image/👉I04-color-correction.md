@@ -1,4 +1,4 @@
-# Color Grading
+# Color Correction
 
 ## Info
 In professional design, adjusting and refining colors is called “grading”.

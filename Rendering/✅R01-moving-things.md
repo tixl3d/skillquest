@@ -23,111 +23,119 @@ Both operators will be covered in more detail later.
 Connect the operator to the [Vector3] to create the reference animation.
 
 
+# Transform  &mNxhJOD
 
-
-# Transform
-
-## Info
+## Info &fQsKRLh
 Instead of changing an object's position directly, you can keep it unchanged and define an offset that determines how it is drawn.
 
 This offset is called a transformation and can include position, rotation, and scale.
 
-## CallToAction
+## CallToAction &RvWACQ8
 Recreate the animation by combining the given operators.
 
 All parameters are already set correctly. Only the operator order needs to be fixed.
 
 
-# Combining Transforms
+# Combining Transforms  &JikFlHr
 
-## Info
+## Info &i6D8yNp
 When multiple transformations are applied, they are combined into a single transformation.
 
 You do not need to understand the underlying math for now, but the topic of matrices is available later if you are curious.
 
-## Info
+## Info &w9VYKBE
 You can think of each transformation step like a step in a dance routine.
 
 After each step, you stand at a new position and face a new direction.
 
 This is often referred to as the local coordinate system.
 
-## CallToAction
+## CallToAction &mhORxVD
 Build a small example by connecting [AnimVec3] to [Transform] to create a simple eye animation.
 
 No parameter changes are required.
 
 
-# Stacking Transforms
 
-## Info
+# Stacking Transforms  &plOk1Ww
+
+## Info &Xx33nFE
 You can combine an animated transform with another transform to offset it further, for example by moving it to the left.
 
 
-# Instancing
 
-## Info
+
+
+
+
+# Instancing  &C4TAL6R
+
+## Info &x1yvcgt
 In this step, a transform is not only used to define where something is drawn.
 
 The same object is drawn multiple times at different positions.
 
-## Info
+## Info &FmLg0qr
 This is called instancing.
 
 It allows all copies to be defined and adjusted together.
 
-## Info
+## Info &JdnYT2X
 Instancing is a powerful concept, and TiXL provides multiple ways to work with it.
 
-## CallToAction
+## CallToAction(Transform:2)  &DTWskf3
 Replicate the example.
 
 
-# Transform Order
 
-## Info
+# Transform Order  &i4T6AAY
+
+## Info(Transform:2)  &MfROq6x
 When drawing multiple instances using [Transform] operators, each branch can be thought of as a sequence of events.
 
 Examples include “move right,” “rotate,” “scale,” and finally “draw.”
 
 Each operator is applied in the current local coordinate system.
 
-## Info
+## Info &LPpKcqs
 The order matters.
 
 If the world is mirrored first, a rotation to the left may appear as a rotation to the right.
 
 Always follow the chain step by step.
 
-## Info
+## Info &yycFBfB
 There are many operators related to movement, depending on what is being moved, such as images, particles, or geometry.
 
 The teal command-style [Transform] operators are special because they are combined into a single instruction and are effectively free.
 
 Other movement operators are covered in their respective chapters.
 
-## Info
+## Info(Group)  &cLdGf4w
 The [Group] operator also provides built-in transform parameters.
 
 This is useful for moving or rotating multiple objects together.
 
-## CallToAction
+## CallToAction &EHujcoY
 Recreate the challenge using the given operators.
 
 
-# Simpler Transformations
 
-## Info
+# Simpler Transformations  &1Z8bUeV
+
+## Info &8xqum5e
 Sometimes it is clearer to use separate operators for rotation, scaling, or offset.
 
 The connection order is still important.
 
 Rotating first and then moving produces a different result than moving first and then rotating.
 
-## CallToAction
+## CallToAction &r6lKbab
 Combine the operators in the correct order without changing any parameters.
 
 Tip: you can drag a horizontal slice of an operator stack to reorder it.
+
+
 
 
 # Spreading
